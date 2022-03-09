@@ -60,14 +60,22 @@
 			children = (
 				C2DF10CB27D92ADC00E018A6 /* AppDelegate.swift */,
 				C2DF10CD27D92ADC00E018A6 /* SceneDelegate.swift */,
-				C2DF10CF27D92ADC00E018A6 /* LoginViewController.swift */,
 				C2DF10D127D92ADC00E018A6 /* Main.storyboard */,
-				C2DF10DF27D92DB900E018A6 /* WelcomeViewController.swift */,
+				C2DF10E127D930C400E018A6 /* Controllers */,
 				C2DF10D427D92ADE00E018A6 /* Assets.xcassets */,
 				C2DF10D627D92ADE00E018A6 /* LaunchScreen.storyboard */,
 				C2DF10D927D92ADE00E018A6 /* Info.plist */,
 			);
 			path = LoginApp;
+			sourceTree = "<group>";
+		};
+		C2DF10E127D930C400E018A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2DF10CF27D92ADC00E018A6 /* LoginViewController.swift */,
+				C2DF10DF27D92DB900E018A6 /* WelcomeViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

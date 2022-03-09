@@ -67,6 +67,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="itf-1d-C0m" secondAttribute="trailing" constant="30" id="qEh-zP-DHN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTF" destination="XYH-iY-xeZ" id="LC1-s8-gQJ"/>
+                        <outlet property="userNameTF" destination="Nw8-JD-RvB" id="QXF-QA-AEX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,6 +101,9 @@
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOutButton" destination="4ZK-HT-7CY" eventType="touchUpInside" id="r0w-0U-OJT"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GhM-Tr-18e"/>
@@ -111,6 +118,9 @@
                             <constraint firstItem="VUa-oE-yoS" firstAttribute="top" secondItem="sdq-bR-HmH" secondAttribute="bottom" constant="21" id="z6E-LE-MRI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="sdq-bR-HmH" id="5v5-6o-ZWq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ca9-33-uTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
