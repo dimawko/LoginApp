@@ -1,13 +1,20 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
     let userName = "dimawko"
     let password = "12345"
+    let okAction = UIAlertAction(title: "OK", style: .default)
+    
+    override func viewDidLoad() {
+        
+        userNameTF.delegate = self
+        passwordTF.delegate = self
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
@@ -28,13 +35,13 @@ class LoginViewController: UIViewController {
             preferredStyle: .alert
         )
         
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        
         alert.addAction(okAction)
         
         if userNameTF.text != userName || passwordTF.text != password {
             present(alert, animated: true)
             passwordTF.text = ""
+        } else {
+            performSegue(withIdentifier: "loginSegue", sender: self)
         }
     }
     
@@ -45,8 +52,6 @@ class LoginViewController: UIViewController {
             message: "Your name is \(userName) 😉",
             preferredStyle: .alert
         )
-        
-        let okAction = UIAlertAction(title: "OK", style: .default)
         
         alert.addAction(okAction)
         present(alert, animated: true)
@@ -60,8 +65,6 @@ class LoginViewController: UIViewController {
             preferredStyle: .alert
         )
         
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        
         alert.addAction(okAction)
         present(alert, animated: true)
     }
@@ -69,5 +72,15 @@ class LoginViewController: UIViewController {
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTF.text = ""
         passwordTF.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == userNameTF {
+            passwordTF.becomeFirstResponder()
+        } else {
+            logInButtonPressed()
+        }
+        return true
     }
 }
