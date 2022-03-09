@@ -11,6 +11,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let okAction = UIAlertAction(title: "OK", style: .default)
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         userNameTF.delegate = self
         passwordTF.delegate = self
@@ -28,7 +29,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func logInButtonPressed() {
-        
         let alert = UIAlertController(
             title: "Invalid login or password",
             message: "Please, enter your correct login and password",
@@ -46,7 +46,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotUserNameButtonPressed() {
-        
         let alert = UIAlertController(
             title: "Oops!",
             message: "Your name is \(userName) 😉",
@@ -58,7 +57,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func forgotPasswordButtonPressed() {
-        
         let alert = UIAlertController(
             title: "Oops!",
             message: "Your password is \(password) 😉",
@@ -75,7 +73,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField == userNameTF {
             passwordTF.becomeFirstResponder()
         } else {
