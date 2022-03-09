@@ -41,7 +41,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             present(alert, animated: true)
             passwordTF.text = ""
         } else {
-            performSegue(withIdentifier: "loginSegue", sender: self)
+            performSegue(withIdentifier: "loginSegue", sender: nil)
         }
     }
     
