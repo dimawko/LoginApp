@@ -2,29 +2,41 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    let userName = "dimawko"
+    let password = "12345"
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let settingsVC = segue.destination as? WelcomeViewController else { return }
-        settingsVC.welcomeText = "Welcome, \(userNameTF.text ?? "")"
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.welcomeText = "Welcome, \(userNameTF.text ?? "")"
     }
-
+    
     @IBAction func logInButtonPressed() {
-        userNameTF.text = ""
-        passwordTF.text = ""
+        
+        let alert = UIAlertController(
+            title: "Invalid login or password",
+            message: "Please, enter your correct login and password",
+            preferredStyle: .alert
+        )
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        
+        if userNameTF.text != userName || passwordTF.text != password {
+            present(alert, animated: true)
+            passwordTF.text = ""
+        }
     }
     
     @IBAction func forgotUserNameButtonPressed() {
         
         let alert = UIAlertController(
             title: "Oops!",
-            message: "Your name is Dimash 😉",
+            message: "Your name is \(userName) 😉",
             preferredStyle: .alert
         )
         
@@ -38,7 +50,7 @@ class LoginViewController: UIViewController {
         
         let alert = UIAlertController(
             title: "Oops!",
-            message: "Your password is 12345 😉",
+            message: "Your password is \(password) 😉",
             preferredStyle: .alert
         )
         
@@ -47,5 +59,9 @@ class LoginViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTF.text = ""
+        passwordTF.text = ""
+    }
 }
-
