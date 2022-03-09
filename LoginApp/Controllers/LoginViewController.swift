@@ -14,6 +14,12 @@ class LoginViewController: UIViewController {
         welcomeVC.welcomeText = "Welcome, \(userNameTF.text ?? "")"
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        self.view.endEditing(true)
+    }
+    
     @IBAction func logInButtonPressed() {
         
         let alert = UIAlertController(
