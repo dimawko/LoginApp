@@ -36,7 +36,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="logInButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="fgP-DT-jqK"/>
-                                            <segue destination="4ZK-HT-7CY" kind="presentation" identifier="" id="fdJ-bZ-Ua8"/>
+                                            <segue destination="4ZK-HT-7CY" kind="presentation" identifier="loginSegue" id="fdJ-bZ-Ua8"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-ss-KsT">
