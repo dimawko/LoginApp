@@ -5,7 +5,7 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet var welcomeLabel: UILabel!
     
-    var welcomeText: String!
+    var userName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +18,6 @@ class WelcomeViewController: UIViewController {
         gradient.frame = view.bounds
         self.view.layer.insertSublayer(gradient, at: 0)
         
-        welcomeLabel.text = welcomeText
-    }
-    
-    @IBAction func logOutButton() {
-        dismiss(animated: true)
+        welcomeLabel.text = "Welcome, \(userName ?? "User")"
     }
 }
