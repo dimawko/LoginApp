@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="itf-1d-C0m">
-                                <rect key="frame" x="30" y="188" width="260" height="192"/>
+                                <rect key="frame" x="30" y="163" width="260" height="192"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nw8-JD-RvB">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="34"/>
@@ -36,7 +36,6 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="logInButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="fgP-DT-jqK"/>
-                                            <segue destination="4ZK-HT-7CY" kind="showDetail" identifier="loginSegue" id="tlW-Gq-cOO"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-ss-KsT">
@@ -48,16 +47,16 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot User Name?"/>
                                                 <connections>
-                                                    <action selector="forgotUserNameButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="0X7-9a-dtU"/>
+                                                    <action selector="showAuthorizationData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h4g-sH-Dwd"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X9-w0-oJd">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X9-w0-oJd">
                                                 <rect key="frame" x="130" y="0.0" width="130" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot Password?"/>
                                                 <connections>
-                                                    <action selector="forgotPasswordButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="kju-5K-CDq"/>
+                                                    <action selector="showAuthorizationData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="023-t6-AVb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -69,15 +68,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="itf-1d-C0m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3fo-36-uqm"/>
-                            <constraint firstItem="itf-1d-C0m" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NME-Pg-Amd"/>
+                            <constraint firstItem="itf-1d-C0m" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-25" id="NME-Pg-Amd"/>
                             <constraint firstItem="itf-1d-C0m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Ryd-Vi-AaN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="itf-1d-C0m" secondAttribute="trailing" constant="30" id="qEh-zP-DHN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9bq-Km-dCk"/>
                     <connections>
                         <outlet property="passwordTF" destination="XYH-iY-xeZ" id="LC1-s8-gQJ"/>
                         <outlet property="userNameTF" destination="Nw8-JD-RvB" id="QXF-QA-AEX"/>
+                        <segue destination="4ZK-HT-7CY" kind="presentation" identifier="openWelcomeVC" modalPresentationStyle="fullScreen" id="Z76-05-Fvc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -87,7 +86,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="kyN-6r-J0N">
             <objects>
-                <viewController modalPresentationStyle="currentContext" id="4ZK-HT-7CY" customClass="WelcomeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4ZK-HT-7CY" customClass="WelcomeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ime-nF-yZG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
