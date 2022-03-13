@@ -13,17 +13,18 @@ struct User {
 struct Person {
     let realName: String
     let placeOfResidence: String
-    let age: String
     let job: String
     let education: String
-    let specialization: String
 }
 
-//MARK: - Users database
+enum placeOfResidence {
+    case title
+    case description
+}
+
 let dimawko = Person(
-    realName: "Димаш Сагынткан",
-    placeOfResidence: "Республика Казахстан",
-    age: "24 года", job: "Комитет национальной безопасности РК",
-    education: "МГИМО МИД РФ",
-    specialization: "Экономист-международник"
+    realName: "Dimash Sagyntkan",
+    placeOfResidence: "Republic of Kazakhstan",
+    job: "KGS Space Technologies",
+    education: "MGIMO University"
 )

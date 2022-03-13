@@ -3,7 +3,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    //MARK: - IB Outlets
+    //MARK: - IBOutlets
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
@@ -20,37 +20,33 @@ class LoginViewController: UIViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let tabBarController = segue.destination as? UITabBarController {
             for viewController in tabBarController.viewControllers! {
                 if let welcomeVC = viewController as? WelcomeViewController {
                     welcomeVC.userName = user.person.realName
                 } else if let navigationVC = viewController as? UINavigationController {
-                    let aboutUserVC = navigationVC.topViewController as! AboutMeViewController
-                    aboutUserVC.navigationController?.navigationBar.topItem?.title = user.person.realName
-                    aboutUserVC.placeOfResidence = user.person.placeOfResidence
+                    let aboutUserVC = navigationVC.topViewController as! AboutMeMenuViewController
                     aboutUserVC.job = user.person.job
-                    aboutUserVC.age = user.person.age
+                    aboutUserVC.placeOfResidence = user.person.placeOfResidence
                     aboutUserVC.education = user.person.education
-                    aboutUserVC.specialization = user.person.specialization
                 }
             }
-        } else {
-            print("An error has occurred")
         }
     }
     
     //MARK: - IBActions
     @IBAction func logInButtonPressed() {
-        if userNameTF.text != user.userName || passwordTF.text != user.password {
+        guard userNameTF.text == user.userName || passwordTF.text == user.password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter your correct login and password",
                 textField: passwordTF
             )
-        } else {
+            return
+        }
             performSegue(withIdentifier: "openWelcomeVC", sender: nil)
         }
-    }
     
     @IBAction func showAuthorizationData(_ sender: UIButton) {
         sender.tag == 0

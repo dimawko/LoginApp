@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2AE3AB727DE73570029B891 /* AboutMeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AE3AB627DE73570029B891 /* AboutMeMenuViewController.swift */; };
 		C2C3F28327DB51F300747DE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3F28227DB51F300747DE2 /* User.swift */; };
-		C2C3F28627DB624300747DE2 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3F28527DB624300747DE2 /* AboutMeViewController.swift */; };
+		C2C3F28627DB624300747DE2 /* PlaceOfResidence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C3F28527DB624300747DE2 /* PlaceOfResidence.swift */; };
+		C2C478D827DE36A10038D779 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C478D727DE36A10038D779 /* JobViewController.swift */; };
+		C2C478DA27DE36BE0038D779 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C478D927DE36BE0038D779 /* EducationViewController.swift */; };
 		C2DF10CC27D92ADC00E018A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF10CB27D92ADC00E018A6 /* AppDelegate.swift */; };
 		C2DF10CE27D92ADC00E018A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF10CD27D92ADC00E018A6 /* SceneDelegate.swift */; };
 		C2DF10D027D92ADC00E018A6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF10CF27D92ADC00E018A6 /* LoginViewController.swift */; };
@@ -19,8 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C2AE3AB627DE73570029B891 /* AboutMeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeMenuViewController.swift; sourceTree = "<group>"; };
 		C2C3F28227DB51F300747DE2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C2C3F28527DB624300747DE2 /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		C2C3F28527DB624300747DE2 /* PlaceOfResidence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOfResidence.swift; sourceTree = "<group>"; };
+		C2C478D727DE36A10038D779 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JobViewController.swift; path = LoginApp/Storyboards/JobViewController.swift; sourceTree = SOURCE_ROOT; };
+		C2C478D927DE36BE0038D779 /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
 		C2DF10C827D92ADC00E018A6 /* LoginApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DF10CB27D92ADC00E018A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2DF10CD27D92ADC00E018A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +117,10 @@
 			children = (
 				C2DF10CF27D92ADC00E018A6 /* LoginViewController.swift */,
 				C2DF10DF27D92DB900E018A6 /* WelcomeViewController.swift */,
-				C2C3F28527DB624300747DE2 /* AboutMeViewController.swift */,
+				C2AE3AB627DE73570029B891 /* AboutMeMenuViewController.swift */,
+				C2C3F28527DB624300747DE2 /* PlaceOfResidence.swift */,
+				C2C478D727DE36A10038D779 /* JobViewController.swift */,
+				C2C478D927DE36BE0038D779 /* EducationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,11 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2C3F28627DB624300747DE2 /* AboutMeViewController.swift in Sources */,
+				C2C3F28627DB624300747DE2 /* PlaceOfResidence.swift in Sources */,
+				C2C478D827DE36A10038D779 /* JobViewController.swift in Sources */,
 				C2C3F28327DB51F300747DE2 /* User.swift in Sources */,
+				C2C478DA27DE36BE0038D779 /* EducationViewController.swift in Sources */,
 				C2DF10D027D92ADC00E018A6 /* LoginViewController.swift in Sources */,
 				C2DF10E027D92DB900E018A6 /* WelcomeViewController.swift in Sources */,
 				C2DF10CC27D92ADC00E018A6 /* AppDelegate.swift in Sources */,
+				C2AE3AB727DE73570029B891 /* AboutMeMenuViewController.swift in Sources */,
 				C2DF10CE27D92ADC00E018A6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
