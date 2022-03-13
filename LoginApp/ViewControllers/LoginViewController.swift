@@ -26,10 +26,11 @@ class LoginViewController: UIViewController {
                 if let welcomeVC = viewController as? WelcomeViewController {
                     welcomeVC.userName = user.person.realName
                 } else if let navigationVC = viewController as? UINavigationController {
-                    let aboutUserVC = navigationVC.topViewController as! AboutMeMenuViewController
-                    aboutUserVC.job = user.person.job
-                    aboutUserVC.placeOfResidence = user.person.placeOfResidence
-                    aboutUserVC.education = user.person.education
+                    if let aboutUserVC = navigationVC.topViewController as? AboutMeMenuViewController {
+                        aboutUserVC.job = user.person.job
+                        aboutUserVC.placeOfResidence = user.person.placeOfResidence
+                        aboutUserVC.education = user.person.education
+                    }
                 }
             }
         }
