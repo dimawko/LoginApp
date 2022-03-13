@@ -8,8 +8,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTF: UITextField!
     
     //MARK: - Private Properties
-    private let userName = "dimawko"
-    private let password = "12345"
+    private let user = User.getUserInfo()
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -21,13 +20,28 @@ class LoginViewController: UIViewController {
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = userName
+        if let tabBarController = segue.destination as? UITabBarController {
+            for viewController in tabBarController.viewControllers! {
+                if let welcomeVC = viewController as? WelcomeViewController {
+                    welcomeVC.userName = user.person.realName
+                } else if let navigationVC = viewController as? UINavigationController {
+                    let aboutUserVC = navigationVC.topViewController as! AboutMeViewController
+                    aboutUserVC.navigationController?.navigationBar.topItem?.title = user.person.realName
+                    aboutUserVC.placeOfResidence = user.person.placeOfResidence
+                    aboutUserVC.job = user.person.job
+                    aboutUserVC.age = user.person.age
+                    aboutUserVC.education = user.person.education
+                    aboutUserVC.specialization = user.person.specialization
+                }
+            }
+        } else {
+            print("An error has occurred")
+        }
     }
     
     //MARK: - IBActions
     @IBAction func logInButtonPressed() {
-        if userNameTF.text != userName || passwordTF.text != password {
+        if userNameTF.text != user.userName || passwordTF.text != user.password {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter your correct login and password",
@@ -40,8 +54,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func showAuthorizationData(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(title: "Oops!", message: "Your name is \(userName) 😉")
-        : showAlert(title: "Oops!", message: "Your password is \(password) 😉")
+        ? showAlert(title: "Oops!", message: "Your name is \(user.userName) 😉")
+        : showAlert(title: "Oops!", message: "Your password is \(user.password) 😉")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {

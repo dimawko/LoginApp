@@ -16,8 +16,10 @@ class WelcomeViewController: UIViewController {
         gradient.startPoint = CGPoint(x : 0.0, y : 0)
         gradient.endPoint = CGPoint(x :0.0, y: 0.7)
         gradient.frame = view.bounds
-        self.view.layer.insertSublayer(gradient, at: 0)
+        view.layer.insertSublayer(gradient, at: 0)
         
-        welcomeLabel.text = "Welcome, \(userName ?? "User")"
+        welcomeLabel.numberOfLines = 0
+        welcomeLabel.lineBreakMode = .byClipping
+        welcomeLabel.text = "Welcome, \n \(userName ?? "User")"
     }
 }
