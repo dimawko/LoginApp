@@ -22,14 +22,14 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let tabBarController = segue.destination as? UITabBarController {
-            for viewController in tabBarController.viewControllers! {
-                if let welcomeVC = viewController as? WelcomeViewController {
-                    welcomeVC.userName = user.person.realName
-                } else if let navigationVC = viewController as? UINavigationController {
-                    if let aboutUserVC = navigationVC.topViewController as? AboutMeMenuViewController {
-                        aboutUserVC.job = user.person.job
-                        aboutUserVC.placeOfResidence = user.person.placeOfResidence
-                        aboutUserVC.education = user.person.education
+            if let TBViewControllers = tabBarController.viewControllers {
+                for viewController in TBViewControllers {
+                    if let welcomeVC = viewController as? WelcomeViewController {
+                        welcomeVC.userName = user.person.realName
+                    } else if let navigationVC = viewController as? UINavigationController {
+                        if let aboutUserVC = navigationVC.topViewController as? AboutMeMenuViewController {
+                            aboutUserVC.userPersonaInfo = user
+                        }
                     }
                 }
             }
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func logInButtonPressed() {
-        guard userNameTF.text == user.userName || passwordTF.text == user.password else {
+        guard userNameTF.text == user.userName, passwordTF.text == user.password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter your correct login and password",

@@ -5,8 +5,7 @@ struct User {
     let person: Person
     
     static func getUserInfo() -> User {
-        let user = User(userName: "dimawko", password: "12345", person: dimawko)
-        return user
+        User(userName: "dimawko", password: "12345", person: Person.getPersonInfo())
     }
 }
 
@@ -15,16 +14,13 @@ struct Person {
     let placeOfResidence: String
     let job: String
     let education: String
+    
+    static func getPersonInfo() -> Person {
+        Person(
+            realName: "Dimash Sagyntkan",
+            placeOfResidence: "Republic of Kazakhstan",
+            job: "KGS Space Technologies",
+            education: "MGIMO University"
+        )
+    }
 }
-
-enum placeOfResidence {
-    case title
-    case description
-}
-
-let dimawko = Person(
-    realName: "Dimash Sagyntkan",
-    placeOfResidence: "Republic of Kazakhstan",
-    job: "KGS Space Technologies",
-    education: "MGIMO University"
-)

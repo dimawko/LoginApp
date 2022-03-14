@@ -5,9 +5,7 @@ class AboutMeMenuViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
     
-    var job: String!
-    var placeOfResidence: String!
-    var education: String!
+    var userPersonaInfo: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,17 +17,18 @@ class AboutMeMenuViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OpenJobVC" {
+        switch segue.identifier {
+        case "OpenJobVC":
             if let jobVC = segue.destination as? JobViewController {
-                jobVC.job = job
+                jobVC.job = userPersonaInfo.person.job
             }
-        } else if segue.identifier == "OpenPlaceOfResidenceVC" {
+        case "OpenPlaceOfResidenceVC":
             if let placeOfResidenceVC = segue.destination as? PlaceOfResidence {
-                placeOfResidenceVC.placeOfResidence = placeOfResidence
+                placeOfResidenceVC.placeOfResidence = userPersonaInfo.person.placeOfResidence
             }
-        } else {
+        default:
             if let educationVC = segue.destination as? EducationViewController {
-                educationVC.education = education
+                educationVC.education = userPersonaInfo.person.education
             }
         }
     }
